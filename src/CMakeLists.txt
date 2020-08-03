@@ -2,13 +2,13 @@ include("list_of_files.cmake")
 
 if(CMAKE_Fortran_COMPILER_ID MATCHES "^(Intel)$")
   set(CMAKE_Fortran_FLAGS
-    "-g -traceback -auto -convert big_endian -assume byterecl -fp-model strict -fpp"
+    "-g -traceback -auto -convert big_endian -assume byterecl -fp-model strict -fpp -fPIC"
     )
   set(CMAKE_Fortran_FLAGS_RELEASE "-O3")
   set(fortran_d_flags "-i4 -r8")
   set(fortran_8_flags "-i8 -r8")
 elseif(CMAKE_Fortran_COMPILER_ID MATCHES "^(GNU|Clang|AppleClang)$")
-  set(CMAKE_Fortran_FLAGS "-g -fbacktrace -fconvert=big-endian")
+  set(CMAKE_Fortran_FLAGS "-g -fbacktrace -fconvert=big-endian -fPIC")
   set(CMAKE_Fortran_FLAGS_RELEASE "-O3")
   set(fortran_d_flags "-fdefault-real-8")
   set(fortran_8_flags "-fdefault-integer-8 -fdefault-real-8")
